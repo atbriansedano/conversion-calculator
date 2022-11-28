@@ -138,6 +138,8 @@ def conversion_calculator():
                     formatHex.append(13)
                 elif x == 'E' or x == 'e':
                     formatHex.append(14)
+                elif x == 'F' or x == 'f':
+                    formatHex.append(15)
                 else:
                     formatHex.append(int(x))
             print(formatHex)
@@ -145,14 +147,49 @@ def conversion_calculator():
             for x in formatHex:
                 decimal += (x * (16**(n-1)))
                 n -= 1 
- 
+            
+             #------------------------------------------------------------#
+             #                   Hex to Binary                            #
+             #------------------------------------------------------------#
+
+             #FIX HEX TO BINARY, FISRT VARIABLE SHOWS FLIPPED   
+            binHex = ['0000','0001', '0010', '0011', '0100', '0101', '0110', '0111', 
+                      '1000', '1001', '1010', '1011', '1100','1101', '1110', '1111']
+            
+            binary = []
+
+            for x in formatHex:
+                binary.append(binHex[x])
+
+            binary = ' '.join(str(x) for x in binary)
+
+             #------------------------------------------------------------#
+             #                   Hex to Octal                             #
+             #------------------------------------------------------------#
+
+            octal = []
+
+            divOct = decimal
+
+            while divOct >= 1:
+                if divOct < 8:
+                    octal.append(divOct)         
+                    break
+                rem = divOct%8
+                octal.append(rem)
+                divOct = math.trunc(divOct/8)
+                
+            octal.reverse()
+            octal = ''.join(str(x) for x in octal)
+    
+                
             print("""
     *-----------------------------------------------* 
         Hexadecimal: {}
         Hexadecimal to Decimal: {}               
-        Hexadecimal to Binary: {} 
+        Hexadecimal to Binary: {}  
         Hexadecimal to Octal: {}
-    *-----------------------------------------------*""".format(hexadecimal, decimal, 10, 10))
+    *-----------------------------------------------*""".format(hexadecimal, decimal, binary, octal))
             break
             
         elif choice == "3":
