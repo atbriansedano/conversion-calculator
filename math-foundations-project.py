@@ -194,11 +194,87 @@ def conversion_calculator():
             
         elif choice == "3":
 
-            #Oct to Dec, Bin, Hex
+            #------------------------------------------------------------#
+            #                 Octal to Bin, Dec, Hex                     #
+            #------------------------------------------------------------#
 
-            break
+            oct = input("\n        Enter a decimal digit: ")
+
+            #------------------------------------------------------------#
+            #                 Octal to Decimal                           #
+            #------------------------------------------------------------#
+            octArr = list(oct)
+            decimal = 0
+            n = len(octArr)
+            for x in octArr:
+                decimal += (int(x) * (8**(n-1)))
+                n -= 1
+
+            #------------------------------------------------------------#
+            #                 Octal to Binary                            #
+            #------------------------------------------------------------# 
+
+            binary = []
+
+            binRes = decimal
+
+            while binRes >= 1:
+
+                if (binRes % 2) == 0:
+                    binary.append(0)            
+                else:
+                    binary.append(1)
+
+                binRes = math.trunc(binRes/2)
+
+            while len(binary) < 8:
+              binary.append(0)
             
+            binary.reverse()
+
+            binary = ''.join(str(x) for x in binary)
+
+            #------------------------------------------------------------#
+            #                 Octal to Hexadecimal                       #
+            #------------------------------------------------------------# 
+
+            hexDigits = ['A', 'B', 'C', 'D', 'E', 'F']
+            hexadecimal = []
+
+            div = decimal
+
+            while div >= 1:
+                if div < 16:
+                    if div > 9:
+                        hexadecimal.append(hexDigits[div-10])
+                    else:
+                        hexadecimal.append(div)         
+                    break
+                rem = div%16
+                div = math.trunc(div/16)
+                if rem > 9:
+                    hexadecimal.append(hexDigits[rem-10])
+                else:
+                    hexadecimal.append(rem)
+                
+
+            hexadecimal.reverse()
+            hexadecimal = ''.join(str(x) for x in hexadecimal)
+
+            print("""
+    *-----------------------------------------------* 
+        Octal: {}
+        Octal to Decimal: {}               
+        Octal to Binary: {}  
+        Octal to Hexadecimal: {}
+    *-----------------------------------------------*""".format(oct, decimal, binary, hexadecimal))
+            break
+           
         elif choice == "4":
+            
+            #------------------------------------------------------------#
+            #                 Octal to Hexadecimal                       #
+            #------------------------------------------------------------# 
             
             #Bin to Dec, Oct, Hex
 
