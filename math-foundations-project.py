@@ -30,7 +30,7 @@ def conversion_calculator():
             #                  Decimal to Bin, Hex, Oct                  #
             #------------------------------------------------------------#
         
-            decimal = int(input("\n        Enter a decimal digit: "))
+            decimal = int(input("\n        Enter a decimal number: "))
  
             #------------------------------------------------------------#
             #                  Decimal to binary                         #
@@ -117,7 +117,7 @@ def conversion_calculator():
             #              Hexadecimal to Bin, Dec, Oct                  #
             #------------------------------------------------------------#
 
-            hexadecimal = input("\n        Enter a hexadecimal digit: ")
+            hexadecimal = input("\n        Enter a hexadecimal number: ")
 
             
              #------------------------------------------------------------#
@@ -198,7 +198,7 @@ def conversion_calculator():
             #                 Octal to Bin, Dec, Hex                     #
             #------------------------------------------------------------#
 
-            oct = input("\n        Enter a decimal digit: ")
+            oct = input("\n        Enter a decimal number: ")
 
             #------------------------------------------------------------#
             #                 Octal to Decimal                           #
@@ -261,26 +261,93 @@ def conversion_calculator():
             hexadecimal.reverse()
             hexadecimal = ''.join(str(x) for x in hexadecimal)
 
+            binary = ''.join(str(x) for x in binary)
             print("""
     *-----------------------------------------------* 
         Octal: {}
         Octal to Decimal: {}               
         Octal to Binary: {}  
         Octal to Hexadecimal: {}
-    *-----------------------------------------------*""".format(oct, decimal, binary, hexadecimal))
+    *-----------------------------------------------*""".format(oct, decimal, 0, 0))
             break
            
         elif choice == "4":
             
             #------------------------------------------------------------#
-            #                 Octal to Hexadecimal                       #
+            #                 Binary to Dec, Hex, Oct                    #
             #------------------------------------------------------------# 
+
+            binary = input("\n        Enter a binary number: ")
+
+            #------------------------------------------------------------#
+            #                Binary to Decimal                           #
+            #------------------------------------------------------------# 
+
+            binArr = list(binary)
+            decimal = 0
+
+            n = len(binary)
+            for x in binArr:
+                decimal += (int(x) * (2**(n-1)))
+                n -= 1 
             
-            #Bin to Dec, Oct, Hex
+            #------------------------------------------------------------#
+            #                   Binary to Hex                            #
+            #------------------------------------------------------------#
+
+            hexDigits = ['A', 'B', 'C', 'D', 'E', 'F']
+            hexadecimal = []
+
+            div = decimal
+
+            while div >= 1:
+                if div < 16:
+                    if div > 9:
+                        hexadecimal.append(hexDigits[div-10])
+                    else:
+                        hexadecimal.append(div)         
+                    break
+                rem = div%16
+                div = math.trunc(div/16)
+                if rem > 9:
+                    hexadecimal.append(hexDigits[rem-10])
+                else:
+                    hexadecimal.append(rem)
+                
+
+            hexadecimal.reverse()
+            hexadecimal = ''.join(str(x) for x in hexadecimal)
+
+            #------------------------------------------------------------#
+            #                   Binary to Oct                            #
+            #------------------------------------------------------------#
+ 
+            octal = []
+
+            divOct = decimal
+
+            while divOct >= 1:
+                if divOct < 8:
+                    octal.append(divOct)         
+                    break
+                rem = divOct%8
+                octal.append(rem)
+                divOct = math.trunc(divOct/8)
+                
+            octal.reverse()
+            octal = ''.join(str(x) for x in octal)
+            
+            print("""
+    *-----------------------------------------------* 
+        Binary: {}
+        Binary to Decimal: {}               
+        Binary to Hexadecimal: {}
+        Binary to Octal: {}  
+    *-----------------------------------------------*""".format(binary, decimal, hexadecimal, octal))
 
             break
         elif choice == "5":
-            
+
             break
         else:
             print("\nERROR: Invalid Input")
