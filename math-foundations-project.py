@@ -352,15 +352,303 @@ def conversion_calculator():
         else:
             print("\nERROR: Invalid Input")
         break
+    print("     Back to main menu:\n")
+    check = input("y/n: ")
+    if check == 'n':
+        conversion_calculator()
+    
 
 
 def matrix_calculator():
-    x=0
-  
+
+    while(1):
+        print("""
+            *---------------------------------*
+            |Welcome to the Matrix Calculator |
+            *---------------------------------*
+
+            To start please choose between a function:
+
+            1. Addition
+            2. Subtraction
+            3. Multiplication
+            4. Transpose
+            5. Exit
+                """)
+        choice = input("        Your choice: ")
+
+        if choice == '1':
+
+            matSize = int(input("        Please enter a digit (2-4): "))
+
+            print("\n**** NOTE: Matrix A and B will be a {}x{} matrix. ****\n".format(matSize, matSize))
+            
+            totalIndex = matSize * matSize
+
+            print("Please fill in the matrix:  ({} digits for each matrix)\n\nMatrix A:\n".format(totalIndex))
+
+            matA = []
+            matB = []
+            matC = []
+
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matA.append(num)
+                i+=1
+            
+            print("\nMatrix B:\n")
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matB.append(num)
+                i+=1
+            
+            i = 0
+            while i < totalIndex:
+                num = matA[i] + matB[i]
+                matC.append(num)
+                i+=1
+           
+               
+            if matSize == 2:
+
+                print("\n*---------------------*\n    A - B = C:\n")
+                print("     | {} {} |\n     | {} {} |".format(matC[0],matC[1],matC[2],matC[3]))
+                print("*---------------------*\n")
+            
+            if matSize == 3:
+   
+                print("\n*---------------------*\n    A + B = C:\n")
+                print("     | {} {} {} |\n     | {} {} {} |\n     | {} {} {} |".format(matC[0],matC[1],matC[2],matC[3],matC[4],matC[5],matC[6],matC[7],matC[8]))
+                print("*---------------------*\n")
+            
+            if matSize == 4:
+
+                print("\n*---------------------*\n    A + B = C:\n")
+                print("     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |".format(matC[0],
+                matC[1],matC[2],matC[3],matC[4],matC[5],matC[6],matC[7],matC[8],matC[9],
+                matC[10],matC[11],matC[12],matC[13],matC[14],matC[15]))
+                print("*---------------------*\n")
+        
+        if choice == '2':
+
+            matSize = int(input("        Please enter a digit (2-4): "))
+
+            print("\n**** NOTE: Matrix A and B will be a {}x{} matrix. ****\n".format(matSize, matSize))
+            
+            totalIndex = matSize * matSize
+
+            print("Please fill in the matrix:  ({} digits for each matrix)\n\nMatrix A:\n".format(totalIndex))
+
+            matA = []
+            matB = []
+            matC = []
+
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matA.append(num)
+                i+=1
+            
+            print("\nMatrix B:\n")
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matB.append(num)
+                i+=1
+            
+            i = 0
+            while i < totalIndex:
+                num = matA[i] - matB[i]
+                matC.append(num)
+                i+=1
+           
+            if matSize == 2:
+
+                print("\n*---------------------*\n    A - B = C:\n")
+                print("     | {} {} |\n     | {} {} |".format(matC[0],matC[1],matC[2],matC[3]))
+                print("*---------------------*\n")
+
+            if matSize == 3:
+   
+                print("\n*---------------------*\n    A - B = C:\n")
+                print("     | {} {} {} |\n     | {} {} {} |\n     | {} {} {} |".format(matC[0],matC[1],matC[2],matC[3],matC[4],matC[5],matC[6],matC[7],matC[8]))
+                print("*---------------------*\n")
+            
+            if matSize == 4:
+
+                print("\n*---------------------*\n    A - B = C:\n")
+                print("     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |".format(matC[0],
+                matC[1],matC[2],matC[3],matC[4],matC[5],matC[6],matC[7],matC[8],matC[9],
+                matC[10],matC[11],matC[12],matC[13],matC[14],matC[15]))
+                print("*---------------------*\n")
+        
+        if choice == '3':
+            
+            matSize = int(input("        Please enter a digit (2-4): "))
+
+            print("\n**** NOTE: Matrix A and B will be a {}x{} matrix.**** \n".format(matSize, matSize))
+            
+            totalIndex = matSize * matSize
+
+            print("Please fill in the matrix:  ({} digits for each matrix)\n\nMatrix A:\n".format(totalIndex))
+
+            matA = []
+            matB = []
+            matC = []
+
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matA.append(num)
+                i+=1
+            
+            print("\nMatrix B:\n")
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matB.append(num)
+                i+=1
+            
+            if matSize == 2:
+                index = matA[0]*matB[0]+matA[1]*matB[2]
+                matC.append(index)
+                index = matA[0]*matB[1]+matA[1]*matB[3]
+                matC.append(index)
+                index = matA[2]*matB[0]+matA[3]*matB[2]
+                matC.append(index)
+                index = matA[2]*matB[1]+matA[3]*matB[3]
+                matC.append(index)
+
+                print("\n*---------------------*\n    A x B = C:\n")
+                print("     | {} {} |\n     | {} {} |".format(matC[0],matC[1],matC[2],matC[3]))
+                print("*---------------------*\n")
+            
+            if matSize == 3:
+                index = (matA[0]*matB[0])+(matA[1]*matB[3])+(matA[2]*matB[6])
+                matC.append(index)
+                index = (matA[0]*matB[1])+(matA[1]*matB[4])+(matA[2]*matB[7])
+                matC.append(index)
+                index = (matA[0]*matB[2])+(matA[1]*matB[5])+(matA[2]*matB[8])
+                matC.append(index)
+
+                index = (matA[3]*matB[0])+(matA[4]*matB[3])+(matA[5]*matB[6])
+                matC.append(index)
+                index = (matA[3]*matB[1])+(matA[4]*matB[4])+(matA[5]*matB[7])
+                matC.append(index)
+                index = (matA[3]*matB[2])+(matA[4]*matB[5])+(matA[5]*matB[8])
+                matC.append(index)
+
+                index = (matA[6]*matB[0])+(matA[7]*matB[3])+(matA[8]*matB[6])
+                matC.append(index)
+                index = (matA[6]*matB[1])+(matA[7]*matB[4])+(matA[8]*matB[7])
+                matC.append(index)
+                index = (matA[6]*matB[2])+(matA[7]*matB[5])+(matA[8]*matB[8])
+                matC.append(index)
+
+                print("\n*---------------------*\n    A x B = C:\n")
+                print("     | {} {} {} |\n     | {} {} {} |\n     | {} {} {} |".format(matC[0],matC[1],matC[2],matC[3],matC[4],matC[5],matC[6],matC[7],matC[8]))
+                print("*---------------------*\n")
+            
+            if matSize == 4:
+                index = (matA[0]*matB[0])+(matA[1]*matB[4])+(matA[2]*matB[8])+(matA[3]+matB[12])
+                matC.append(index)
+                index = (matA[0]*matB[1])+(matA[1]*matB[5])+(matA[2]*matB[9])+(matA[3]+matB[13])
+                matC.append(index)
+                index = (matA[0]*matB[2])+(matA[1]*matB[6])+(matA[2]*matB[10])+(matA[3]+matB[14])
+                matC.append(index)
+                index = (matA[0]*matB[3])+(matA[1]*matB[7])+(matA[2]*matB[11])+(matA[3]+matB[15])
+                matC.append(index)
+
+                index = (matA[4]*matB[0])+(matA[5]*matB[4])+(matA[6]*matB[8])+(matA[7]+matB[12])
+                matC.append(index)
+                index = (matA[4]*matB[1])+(matA[5]*matB[5])+(matA[6]*matB[9])+(matA[7]+matB[13])
+                matC.append(index)
+                index = (matA[4]*matB[2])+(matA[5]*matB[6])+(matA[6]*matB[10])+(matA[7]+matB[14])
+                matC.append(index)
+                index = (matA[4]*matB[3])+(matA[5]*matB[7])+(matA[6]*matB[11])+(matA[7]+matB[15])
+                matC.append(index)
+
+                index = (matA[8]*matB[0])+(matA[9]*matB[4])+(matA[10]*matB[8])+(matA[11]+matB[12])
+                matC.append(index)
+                index = (matA[8]*matB[1])+(matA[9]*matB[5])+(matA[10]*matB[9])+(matA[11]+matB[13])
+                matC.append(index)
+                index = (matA[8]*matB[2])+(matA[9]*matB[6])+(matA[10]*matB[10])+(matA[11]+matB[14])
+                matC.append(index)
+                index = (matA[8]*matB[3])+(matA[9]*matB[7])+(matA[10]*matB[11])+(matA[11]+matB[15])
+                matC.append(index)
+
+                index = (matA[12]*matB[0])+(matA[13]*matB[4])+(matA[14]*matB[8])+(matA[15]+matB[12])
+                matC.append(index)
+                index = (matA[12]*matB[1])+(matA[13]*matB[5])+(matA[14]*matB[9])+(matA[15]+matB[13])
+                matC.append(index)
+                index = (matA[12]*matB[2])+(matA[13]*matB[6])+(matA[14]*matB[10])+(matA[15]+matB[14])
+                matC.append(index)
+                index = (matA[12]*matB[3])+(matA[13]*matB[7])+(matA[14]*matB[11])+(matA[15]+matB[15])
+                matC.append(index)
+
+                print("\n*---------------------*\n    A x B = C:\n")
+                print("     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |".format(matC[0],
+                matC[1],matC[2],matC[3],matC[4],matC[5],matC[6],matC[7],matC[8],matC[9],
+                matC[10],matC[11],matC[12],matC[13],matC[14],matC[15]))
+                print("*---------------------*\n")
+        
+        elif choice == '4':
+            
+            matSize = int(input("        Please enter a digit (2-4): "))
+
+            print("\n**** NOTE: Matrix will be a {}x{} matrix. ****\n".format(matSize, matSize))
+            
+            totalIndex = matSize * matSize
+
+            print("Please fill in the matrix:  ({} digits for each matrix)\n\nMatrix A:\n".format(totalIndex))
+
+            matA = []
+            matC = []
+
+            i = 0
+            while i < totalIndex:
+                num = int(input("Enter: "))
+                matA.append(num)
+                i+=1
+            
+            if matSize == 2:
+                print("\n*---------------------*\n    Orignal Matrix:\n")
+                print("     | {} {} |\n     | {} {} |".format(matA[0],matA[1],matA[2],matA[3]))
+                print("*---------------------*\n    Transposed Matrix:")
+                print("     | {} {} |\n     | {} {} |".format(matA[0],matA[2],matA[1],matA[3]))
+            
+            if matSize == 3:
+                print("\n*---------------------*\n    Orignal Matrix:\n")
+                print("     | {} {} {} |\n     | {} {} {} |\n     | {} {} {} |".format(matA[0],matA[1],matA[2],matA[3],matA[4],matA[5], matA[6], matA[7],matA[8]))
+                print("*---------------------*\n    Transposed Matrix:")
+                print("     | {} {} {} |\n     | {} {} {} |\n     | {} {} {} |".format(matA[0],matA[3],matA[6],matA[1],matA[4],matA[7],matA[2],matA[5],matA[8]))
+            
+            if matSize == 4:
+                print("\n*---------------------*\n    Orignal Matrix:\n")
+                print("     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |".format(matA[0],
+                matA[1],matA[2],matA[3],matA[4],matA[5], matA[6], matA[7],matA[8],
+                matA[9],matA[10],matA[11],matA[12],matA[13], matA[14], matA[15]))
+                print("*---------------------*\n    Transposed Matrix:\n")
+                print("     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |\n     | {} {} {} {} |".format(matA[0],
+                matA[4],matA[8],matA[12],matA[1],matA[5], matA[9], matA[13],matA[2],matA[6],
+                matA[10],matA[14],matA[3],matA[7],matA[11], matA[15]))
+
+        elif choice == '5':
+            break
+        else:
+            break
+    print("     Back to main menu:\n")
+    check = input("y/n: ")
+    if check == 'n':
+        matrix_calculator()
     
-def prime_calculator():
-       
-       while(1):
+        
+
+
+def prime_calculator():  
+    while(1):
         print("""
             *--------------------------------*
             |Welcome to the Prime Calculator |
@@ -436,9 +724,9 @@ def main():
     while(1):
          
         print("""
-        *-------------------------------------------*
-        |Welcome {}, please choose an option below: |
-        *-------------------------------------------*
+        *-----------------------------------------------*
+         Welcome {}, please choose an option below: 
+        *-----------------------------------------------*
 
         1. Number Conversion Calculator
         2. Matrix Calculator
