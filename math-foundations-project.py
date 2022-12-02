@@ -359,8 +359,76 @@ def matrix_calculator():
   
     
 def prime_calculator():
-    x=0
+       
+       while(1):
+        print("""
+            *--------------------------------*
+            |Welcome to the Prime Calculator |
+            *--------------------------------*
 
+            To start please choose between a function:
+
+            1. Prime Number
+            2. GCD
+            3. LCD
+            4. Exit
+                """)
+        choice = input("        Your choice: ")
+
+        if choice == '1':
+
+            #------------------------------------------------------------#
+            #                  Prime Factorization                       #
+            #------------------------------------------------------------#
+            num1 = input("Please enter a number: ")
+            num2 = input("Please enter another number: ")
+
+            #CODE HERE
+
+            print("""
+    *-----------------------------------------------* 
+        Prime Factorization of Number 1: {}
+        Prime Factorization of Number 2: {}
+    *-----------------------------------------------*""".format(0,0))
+
+        elif choice == '2':
+
+            #------------------------------------------------------------#
+            #                 Greates Common Denominator                 #
+            #------------------------------------------------------------#
+
+            num1 = input("Please enter a number: ")
+            num2 = input("Please enter another number: ")
+
+            #CODE HERE
+
+            print("""
+    *-----------------------------------------------* 
+        Greatest Common Denominator of Number 1: {}
+        Greatest Common Denominator of Number 2: {}
+    *-----------------------------------------------*""".format(0,0))
+        elif choice == '3':
+
+            #------------------------------------------------------------#
+            #                 Lowest Common Multiple                  #
+            #------------------------------------------------------------#
+            num1 = input("Please enter a number: ")
+            num2 = input("Please enter another number: ")
+
+            #CODE HERE
+
+            print("""
+    *-----------------------------------------------* 
+        Lowest Common Multiple of Number 1: {}
+        Lowest Common Multiple of Number 2: {}
+    *-----------------------------------------------*""".format(0,0))
+            
+        elif choice == '4':
+            break
+        else:
+            print("ERROR: invalid input")
+            break
+        
 
 def main():
     name = input("Please enter your name: ")
