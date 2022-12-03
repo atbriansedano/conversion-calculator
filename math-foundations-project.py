@@ -358,7 +358,7 @@ def conversion_calculator():
         conversion_calculator()
     
 
-
+#Reminder: Add check for entering matrix digits
 def matrix_calculator():
 
     while(1):
