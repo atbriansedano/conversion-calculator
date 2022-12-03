@@ -668,16 +668,40 @@ def prime_calculator():
             #------------------------------------------------------------#
             #                  Prime Factorization                       #
             #------------------------------------------------------------#
-            num1 = input("Please enter a number: ")
-            num2 = input("Please enter another number: ")
+            num1 = int(input("        Please enter a number: "))
+            num2 = int(input ("        Please enter another number: "))
 
-            #CODE HERE
+            num1Arr = []
+            num2Arr = []
+
+            while num1 % 2 == 0:
+                num1Arr.append(2)
+                num1 = num1/2
+
+            for i in range(3, int(math.sqrt(num1))+1,2):
+                while num1%i==0:
+                    num1Arr.append(i)
+                    num1 = num1/i
+            if num1 > 2:
+                num1Arr.append(num1)
+
+            
+            while num2 % 2 == 0:
+                num2Arr.append(2)
+                num2 = num2/2
+                
+            for i in range(3, int(math.sqrt(num2))+1,2):
+                while num2%i==0:
+                    num2Arr.append(i)
+                    num2 = num2/i
+            if num2 > 2:
+                num2Arr.append(num2)
 
             print("""
-    *-----------------------------------------------* 
+    *-------------------------------------------------------* 
         Prime Factorization of Number 1: {}
         Prime Factorization of Number 2: {}
-    *-----------------------------------------------*""".format(0,0))
+    *-------------------------------------------------------*""".format(num1Arr,num2Arr))
 
         elif choice == '2':
 
