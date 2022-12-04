@@ -142,7 +142,6 @@ def conversion_calculator():
                     formatHex.append(15)
                 else:
                     formatHex.append(int(x))
-            print(formatHex)
             n = len(hexArray)
             for x in formatHex:
                 decimal += (x * (16**(n-1)))
@@ -353,12 +352,10 @@ def conversion_calculator():
             print("\nERROR: Invalid Input")
         break
     print("     Back to main menu:\n")
-    check = input("y/n: ")
+    check = input("     y/n: ")
     if check == 'n':
         conversion_calculator()
-    
 
-#Reminder: Add check for entering matrix digits
 def matrix_calculator():
 
     while(1):
@@ -640,13 +637,10 @@ def matrix_calculator():
         else:
             break
     print("     Back to main menu:\n")
-    check = input("y/n: ")
+    check = input("     y/n: ")
     if check == 'n':
         matrix_calculator()
     
-        
-
-
 def prime_calculator():  
     while(1):
         print("""
@@ -658,7 +652,7 @@ def prime_calculator():
 
             1. Prime Number
             2. GCD
-            3. LCD
+            3. LCM
             4. Exit
                 """)
         choice = input("        Your choice: ")
@@ -709,38 +703,64 @@ def prime_calculator():
             #                 Greates Common Denominator                 #
             #------------------------------------------------------------#
 
-            num1 = input("Please enter a number: ")
-            num2 = input("Please enter another number: ")
+            num1 = int(input("        Please enter a number: "))
+            num2 = int(input("        Please enter another number: "))
 
-            #CODE HERE
+            if num1 == 0 or num2 == 0:
+                print("ERROR: Both numbers must be non zero") 
+                break
+            if num1 == num2:
+                print("""
+    *-----------------------------------------------* 
+        Greatest Common Denominator is: {}
+    *-----------------------------------------------*""".format(num1))
+
+            if num1 > num2:
+                lesser = num2
+            else:
+                lesser = num1
+            
+            for x in range(1, lesser + 1):
+                if (num1%x) == 0 and (num2%x) == 0:
+                    result = x
 
             print("""
     *-----------------------------------------------* 
-        Greatest Common Denominator of Number 1: {}
-        Greatest Common Denominator of Number 2: {}
-    *-----------------------------------------------*""".format(0,0))
+        Greatest Common Denominator is: {}
+    *-----------------------------------------------*""".format(result))
         elif choice == '3':
 
             #------------------------------------------------------------#
-            #                 Lowest Common Multiple                  #
+            #                 Lowest Common Multiple                     #
             #------------------------------------------------------------#
-            num1 = input("Please enter a number: ")
-            num2 = input("Please enter another number: ")
+            num1 = int(input("        Please enter a number: "))
+            num2 = int(input("        Please enter another number: "))
 
-            #CODE HERE
+            if num1 > num2:
+                greater = num1
+            else:
+                greater = num2
+
+            while(True): 
+                if((greater % num1 == 0) and (greater % num2 == 0)):
+                    result = greater
+                    break
+                greater += 1
 
             print("""
     *-----------------------------------------------* 
-        Lowest Common Multiple of Number 1: {}
-        Lowest Common Multiple of Number 2: {}
-    *-----------------------------------------------*""".format(0,0))
+        Lowest Common Multiple is: {}
+    *-----------------------------------------------*""".format(result))
             
         elif choice == '4':
             break
         else:
             print("ERROR: invalid input")
             break
-        
+    print("     Back to main menu:\n")
+    check = input("     y/n: ")
+    if check == 'n':
+        prime_calculator()
 
 def main():
     name = input("Please enter your name: ")
@@ -754,7 +774,7 @@ def main():
 
         1. Number Conversion Calculator
         2. Matrix Calculator
-        3. Prime, GCD, LCD
+        3. Prime, GCD, LCM
         4. Exit
             """.format(name))
 
